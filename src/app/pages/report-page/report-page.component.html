@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link pointer"role="button" (click)="getData('highest')">highest airports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer" role="button"(click)="getData('lowest')">lowest airports</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer" (click)="getData('types')">runway types</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link pointer" (click)="getData('ident')">identification</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row" *ngIf="highest">
+  <div class="col-md-12 table-responsive table-hover">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>COUNTRY</th>
+        <th>COUNT</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of highest" (click)="showRunways(item)">
+        <td>{{item.country}}</td>
+        <td>{{item.count}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="row" *ngIf="lowest">
+  <div class="col-md-12 table-responsive table-hover">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>COUNTRY</th>
+        <th>COUNT</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of lowest" (click)="showRunways(item)">
+        <td>{{item.country}}</td>
+        <td>{{item.count}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row" *ngIf="types">
+  <div class="col-md-12 table-responsive table-hover">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>COUNTRY</th>
+        <th>runwayTypes</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of types" (click)="showRunways(item)">
+        <td>{{item.countryName}}</td>
+        <td>{{item.runwayTypes}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row" *ngIf="ident">
+  <div class="col-md-12 table-responsive table-hover">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>count</th>
+        <th>runwayIdentification</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of ident" (click)="showRunways(item)">
+        <td>{{item.count }}</td>
+        <td>{{item.runwayIdentification}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
